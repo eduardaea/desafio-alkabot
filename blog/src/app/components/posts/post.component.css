@@ -2,3 +2,31 @@
     font-size: 85px;
     color: #FFF;
 }
+
+.post-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    
+}
+
+.post{
+    margin-top: 30px;
+}
+
+.comment{
+    margin-top: 2px;
+    background-color: black
+}
+
+.comment-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto; 
+}
+.comment-container h5,h6,p{
+    background-color: transparent;
+    color: white;
+}

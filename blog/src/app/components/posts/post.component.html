@@ -1,7 +1,26 @@
-<!-- <div *ngFor="let post of allPosts" class="post">
-    <span>{{post.title}}</span>
-</div> -->
 
-<div class="post">
+<div class="post-container">
+    <div  *ngFor="let post of allPosts" class="card text-center post">
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">{{post.body}}</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="commentsById(post.id)">Comentários</button>
+        </div>
+        <div class="card-footer text-muted">
+            <span>20 Comentarios</span>
+        </div>
 
+       <div class="comment-container">
+            <div  *ngIf="commentsId.length > 0" class="card " style="width: 18rem;">
+                <div class="card-body comment" *ngFor="let comment of commentsId">
+                <h5 class="card-title">{{comment.body}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{comment.name}}</h6>
+                <p>{{comment.email}}</p>
+                </div>
+            </div>
+        </div>
+        
+  </div>
 </div>
+
+
