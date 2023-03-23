@@ -1,18 +1,34 @@
-.title{
-    font-size: 85px;
-    color: #FFF;
-}
-
 .post-container{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: scroll;
-    
+    overflow-y: scroll;
+    font-family: 'Times New Roman', Times, serif;
 }
+
+.card-title{
+    font-size: 40px;
+    color: #000000;
+}
+
+.card-body{
+    min-height: 300px;
+    box-shadow: 1px 3px 8px rgba(0,0,0, 0.5);
+}
+
+.custom-button, .btn-comments {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    text-align: inherit;
+    text-decoration: underline;
+  }
+
 
 .post{
     margin-top: 30px;
+}
+ .info-user{
+    text-align: left;
 }
 
 .comment{
@@ -26,7 +42,16 @@
     width: 100%;
     overflow-x: auto; 
 }
+
 .comment-container h5,h6,p{
     background-color: transparent;
-    color: white;
+    color: rgb(0, 0, 0);
 }
+.btn-comments{
+    margin-top: 50px;
+    color: blue;
+}
+
+
+
+

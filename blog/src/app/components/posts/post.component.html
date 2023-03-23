@@ -1,26 +1,36 @@
-
 <div class="post-container">
-    <div  *ngFor="let post of allPosts" class="card text-center post">
+    <div  *ngFor="let post of postUser" class="card text-center post">
         <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
-            <p class="card-text">{{post.body}}</p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="commentsById(post.id)">Comentários</button>
+            <div class="info-user">
+                <button type="button" class="custom-button" data-bs-toggle="modal" data-bs-target="#userModal" (click)="userInformations(post.user.name,post.user.email)">{{post.user.name}} </button>
+            </div>
+            <span class="card-title"><i>{{post.post.title}}</i></span>
+            <p class="card-text"><i>{{post.post.body}}</i></p>
+            <button type="button" class="btn btn-primary btn-comments" (click)="navigateToComments(post.post.id)">Comentários</button>
         </div>
-        <div class="card-footer text-muted">
-            <span>20 Comentarios</span>
-        </div>
-
+<!-- 
        <div class="comment-container">
-            <div  *ngIf="commentsId.length > 0" class="card " style="width: 18rem;">
+            <div  *ngIf="commentsId.length > 0" class="card">
                 <div class="card-body comment" *ngFor="let comment of commentsId">
-                <h5 class="card-title">{{comment.body}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{comment.name}}</h6>
+                <h4 class="card-title">{{comment.body}}</h4>
+                <h5 class="card-subtitle mb-2 text-muted">{{comment.name}}</h5>
                 <p>{{comment.email}}</p>
                 </div>
             </div>
+        </div> -->
+    </div>
+    <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="userModalLabel">User Informations</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span>{{userModal}}<br></span>
+                    <span>{{emailModal}}<br></span>
+                </div>
+            </div>
         </div>
-        
-  </div>
+    </div>
 </div>
-
-

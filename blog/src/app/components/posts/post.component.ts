@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommentsModel } from 'src/app/shared/model/comments.model';
+import { PostUserModel } from 'src/app/shared/model/post-user.model';
 import { PostModel } from 'src/app/shared/model/post.model';
+import { UserModel } from 'src/app/shared/model/user.model';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -10,22 +13,53 @@ import { PostsService } from 'src/app/shared/services/posts.service';
 })
 export class PostComponent implements OnInit{
 
-  constructor(private postService: PostsService){}
+  constructor(private postService: PostsService, private router: Router){}
   
   allPosts:PostModel[] = []
-  commentsId: CommentsModel[]=[]
+  allUsers: UserModel[] = []
+  postUser: PostUserModel[]=[]
+  userModal = ''
+  emailModal = ''
 
   ngOnInit(){
     this.postService.getAllPosts().subscribe(
       response=>{
         this.allPosts = response
+        this.getAllUsers()
     })
   }
-  commentsById(id:number){
-    this.postService.getCommentsId(id).subscribe(
+
+  navigateToComments(id:number){
+    this.router.navigate([`comentarios/${id}`]);
+  }
+  
+  getAllUsers(){
+    this.postService.getAllUsers().subscribe(
       response=>{
-        this.commentsId = response
+        this.allUsers = response
+        this.joinUserPost()
       }
     )
   }
+
+  joinUserPost(){
+    for(let post of this.allPosts){
+      for(let user of this.allUsers){
+        if(post.userId === user.id ){
+          let completePost:PostUserModel = {
+            post,
+            user
+          };
+          this.postUser.push(completePost)
+        }
+      }
+    }
+  }
+
+  // Receives user data and passes it on to the variables to be used in the modal.
+  userInformations(name:string, email:string){
+    this.userModal = name,
+    this.emailModal = email       
+  }
+
 }

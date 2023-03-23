@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PostModel } from '../model/post.model';
 import { CommentsModel } from '../model/comments.model'
+import { UserModel } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,9 @@ export class PostsService {
   
   getCommentsId(id:number): Observable<CommentsModel[]>{
     return this.http.get<CommentsModel[]>(`${this.baseUrl}posts/${id}/comments`)
+  }
+  getAllUsers():Observable<UserModel[]>{
+    return this.http.get<UserModel[]>(`${this.baseUrl}users`)
   }
 
 }
