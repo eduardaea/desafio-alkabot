@@ -1,4 +1,4 @@
-#Interface de Blogs
+# Interface de Blogs
 Este projeto tem como objetivo fornecer uma interface intuitiva para leitura e comentários de blogs. Utilizando uma API para carregar os comentários, os usuários podem ler e interagir com as postagens de forma fácil e conveniente.
 
 Funcionalidades
