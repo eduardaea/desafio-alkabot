@@ -1,1 +1,24 @@
+<div class="container">
+    <a routerLink='' routerLinkActive="active">
+        <i class="bi bi-arrow-left-circle-fill"></i>
+    </a>
+    <div class="post-container">
+        <div class="card-body">
+            <span class="user-info">{{userPost?.name}}<br></span>
+            <span class="card-title"><i>{{currentPost?.title}}</i></span>
+            <p class="card-text"><i>{{currentPost?.body}}</i></p>
+        </div>
+    </div>
+    <div class="container-comment">
+        <div *ngFor="let comment of commentsByPost">
+            <div class="card">
+                <div class="card-comments">
+                    <p>{{comment.email}}</p>
+                    <p class="card-title">{{comment.name}}</p>
+                    <p class="card-text">{{comment.body}}</p>
+                </div>
+            </div>                
+        </div>
+    </div>
+</div>
 

@@ -52,6 +52,20 @@
     color: blue;
 }
 
-
+@media(max-width:620px){
+    .card-title{
+        font-size: 20px;
+    }
+    .card-body{
+        min-height: 100px;
+    }
+    .post{
+        margin-top: 15px;
+    }
+    .btn-comments{
+        margin-top: 25px;
+    }
+      
+}
 
 
