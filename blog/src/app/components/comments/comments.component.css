@@ -1,7 +1,13 @@
 .container{
     overflow: hidden;
-    height: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+.route-icon {
+  height: 60px;
+}
+
 .post-container{
     min-height: 300px;
     background-color: rgb(68, 84, 112);
@@ -9,9 +15,8 @@
     box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.158);
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: center;  
     justify-content: center;
-    
     color: white;
 }
 .post-container .card-title{
@@ -43,7 +48,6 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 100vh;
 }
 
 @media (max-width: 768px) {

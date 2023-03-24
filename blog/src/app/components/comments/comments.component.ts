@@ -39,8 +39,7 @@ export class CommentsComponent implements OnInit{
   getComments(){
     this.commentsService.getCommentsById(this.postId).subscribe(
       response=>{
-        this.commentsByPost = [...response, ...response, ...response];
-        console.log(this.commentsByPost)
+        this.commentsByPost = response;
       }
     )
   }
